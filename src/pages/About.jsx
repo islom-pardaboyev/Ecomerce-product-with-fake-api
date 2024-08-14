@@ -1,10 +1,13 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useFetch } from "../hook/useFetch";
 import { MagnifyingGlass } from "react-loader-spinner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const About = () => {
   const { id } = useParams();
+  const navigate = useNavigate()
+  
 
   const { data, loading } = useFetch(`https://fakestoreapi.com/products/${id}`);
   console.log(data);
@@ -23,9 +26,19 @@ const About = () => {
           color="#e15b64"
         />
       ) : (
-        <div className="p-4 border flex items-start gap-3">
+        <div className="p-4 border w-[1000px] flex items-center gap-36">
           <img width={300} src={data.image} alt="" />
-          <div>{data.title}</div>
+          <div className="flex flex-col items-start">
+            <h1 className="text-2xl">{data.title}</h1>
+            <p className="font-bold text-rose-500 text-xl mt-2">
+              $ {data.price}
+            </p>
+            <p className="my-5 text-sm">{data.description}</p>
+            <button onClick={() => navigate(-1)} className="bg-black text-white py-3 px-5 flex items-center space-x-5">
+              <FontAwesomeIcon icon="fa-solid fa-arrow-left-long" />{" "}
+              <span>Back</span>
+            </button>
+          </div>
         </div>
       )}
     </div>
