@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaEye, FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { ProductContext } from "../context/ProductContext";
 
 function ShowProductsCart({product}) {
     const {id, image, title, category, price} = product
+    const {addToBasket} = useContext(ProductContext)
   return (
     <div
       className="col-span-3 overflow-hidden h-[430px] flex flex-col group relative"
@@ -15,18 +17,18 @@ function ShowProductsCart({product}) {
         >
           <FaEye className="text-white" />
         </Link>
-        <p className="p-3 bg-white shadow-lg cursor-pointer">
+        <p onClick={() => addToBasket(id)} className="p-3 bg-white shadow-lg cursor-pointer">
           <FaPlus />
         </p>
       </div>
-      <div className="border min-h-[300px] flex items-center justify-between">
+      <Link to={`/about/${id}`} className="border min-h-[300px] flex items-center justify-between">
         <img
           className="object-cover mx-auto group-hover:scale-110 duration-300"
           width={150}
           src={image}
           alt={title}
         />
-      </div>
+      </Link>
 
       <p className="capitalize mt-2 text-sm text-neutral-500">
         {category}

@@ -28,7 +28,7 @@ function Users() {
   ];
 
   return (
-    <section className="container h-screen overflow-y-auto mx-auto mt-5">
+    <section className="container h-screen overflow-y-auto mx-auto">
       {loading ? (
         <div className="w-full fixed top-0 left-0 h-screen flex items-center justify-center">
           <MagnifyingGlass
@@ -43,7 +43,7 @@ function Users() {
           />
         </div>
       ) : (
-        <table className="min-w-full divide-y divide-gray-200">
+        <table className="min-w-full divide-y mt-32 divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
               {titles.map((title) => (

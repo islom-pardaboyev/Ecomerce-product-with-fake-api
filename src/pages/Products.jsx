@@ -1,14 +1,10 @@
-import React from "react";
-import { useFetch } from "../hook/useFetch";
+import React, { useContext } from "react";
 import { MagnifyingGlass } from "react-loader-spinner";
-import { FaEye } from "react-icons/fa";
-import { FaPlus } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 import ShowProductsCart from "../components/ShowProductsCart";
+import { ProductContext } from "../context/ProductContext";
 
 function Products() {
-  const { data, loading } = useFetch("https://fakestoreapi.com/products");
-
+  const {data, loading} = useContext(ProductContext)
   return (
     <section className="container mx-auto">
       {loading ? (
@@ -25,9 +21,9 @@ function Products() {
           />
         </div>
       ) : (
-        <div className="grid grid-cols-12 items-center gap-8 mt-5 justify-between">
+        <div className="grid grid-cols-12 items-center gap-8 mt-32 justify-between">
           {data.map((product) => (
-            <ShowProductsCart product={product} key={product.id}/>
+            <ShowProductsCart product={product} key={product.id} />
           ))}
         </div>
       )}

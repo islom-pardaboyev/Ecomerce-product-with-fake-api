@@ -10,7 +10,7 @@ const About = () => {
   
 
   const { data, loading } = useFetch(`https://fakestoreapi.com/products/${id}`);
-  console.log(data);
+  
 
   return (
     <div className="w-screen fixed top-0 left-0 h-screen flex items-center justify-center">
