@@ -11,6 +11,7 @@ function Sidebar() {
   let total = 0
 
   savedProds.forEach(item => total += item.price * item.amount)
+  
   console.log(total);
   
 
