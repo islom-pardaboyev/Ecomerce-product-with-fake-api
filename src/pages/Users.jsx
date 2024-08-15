@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useFetch } from "../hook/useFetch";
-import { Bars, MagnifyingGlass } from "react-loader-spinner";
+import { MagnifyingGlass } from "react-loader-spinner";
 import UsersTile from "../components/UsersTitle";
 import UsersList from "../components/UsersList";
+import { gsap } from "gsap";
 
 function Users() {
   const { data, loading } = useFetch(
@@ -26,6 +27,19 @@ function Users() {
       title: "Phone",
     },
   ];
+  const tableRef = useRef();
+
+  document.title = "Users";
+
+  useEffect(() => {
+    if (tableRef.current) {
+      gsap.from(tableRef.current, {
+        y: 100,
+        opacity: 0,
+        duration: 1.3,
+      });
+    }
+  }, []); 
 
   return (
     <section className="container h-screen overflow-y-auto mx-auto">
@@ -43,7 +57,10 @@ function Users() {
           />
         </div>
       ) : (
-        <table className="min-w-full divide-y mt-32 divide-gray-200">
+        <table
+          ref={tableRef}
+          className="min-w-full divide-y mt-32 divide-gray-200"
+        >
           <thead className="bg-gray-50 dark:bg-neutral-500 duration-300">
             <tr>
               {titles.map((title) => (
@@ -63,3 +80,4 @@ function Users() {
 }
 
 export default Users;
+

@@ -4,7 +4,8 @@ import ShowProductsCart from "../components/ShowProductsCart";
 import { ProductContext } from "../context/ProductContext";
 
 function Products() {
-  const {data, loading} = useContext(ProductContext)
+  const { data, loading } = useContext(ProductContext);
+  document.title = "Products";
   return (
     <section className="container mx-auto">
       {loading ? (
