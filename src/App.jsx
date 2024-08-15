@@ -10,7 +10,7 @@ library.add(fas);
 
 function App() {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col duration-300 dark:bg-neutral-800">
       <Toaster position="top-right" reverseOrder={false} />
       <Navbar />
       <CustomRoutes />

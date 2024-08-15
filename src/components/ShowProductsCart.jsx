@@ -21,7 +21,7 @@ function ShowProductsCart({product}) {
           <FaPlus />
         </p>
       </div>
-      <Link to={`/about/${id}`} className="border min-h-[300px] flex items-center justify-between">
+      <Link to={`/about/${id}`} className="border dark:border-neutral-400 min-h-[300px] flex items-center justify-between">
         <img
           className="object-cover mx-auto group-hover:scale-110 duration-300"
           width={150}
@@ -30,16 +30,16 @@ function ShowProductsCart({product}) {
         />
       </Link>
 
-      <p className="capitalize mt-2 text-sm text-neutral-500">
+      <p className="capitalize mt-2 text-sm dark:text-neutral-200 text-neutral-500">
         {category}
       </p>
       <Link
         to={`/about/${id}`}
-        className="font-bold text-lg hover:underline line-clamp-2 mt-2"
+        className="font-bold text-lg dark:text-white hover:underline line-clamp-2 mt-2"
       >
         {title}
       </Link>
-      <p className="font-bold mt-2">$ {price}</p>
+      <p className="font-bold mt-2 dark:text-white">$ {price}</p>
     </div>
   );
 }

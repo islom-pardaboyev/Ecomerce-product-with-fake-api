@@ -10,13 +10,13 @@ function SavedProductCart({ data }) {
   const { removeFromBasket, increaseAmount, decreaseAmount } = useContext(ProductContext);
 
   return (
-    <div className="px-5 min-h-[100px] py-3 rounded-md border flex items-center justify-between border-black/30">
+    <div className="px-5 min-h-[100px] py-3 rounded-md border flex items-center justify-between border-black/30 dark:border-neutral-500">
       <div className="flex items-center gap-6">
         <Link to={`about/${id}`}>
           <img className="m-auto" width={60} src={image} alt="" />
         </Link>
         <div className="flex flex-col">
-          <p className="font-bold w-[90%]">{title}</p>
+          <p className="font-bold w-[90%] line-clamp-2">{title}</p>
           <p className="text-red-500 capitalize">{category}</p>
           <div className="flex w-fit gap-2 mt-2 border rounded-md items-center">
             <button className=" flex-1 p-1" onClick={() => decreaseAmount(id)}>

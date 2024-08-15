@@ -44,7 +44,7 @@ function Users() {
         </div>
       ) : (
         <table className="min-w-full divide-y mt-32 divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead className="bg-gray-50 dark:bg-neutral-500 duration-300">
             <tr>
               {titles.map((title) => (
                 <UsersTile key={title.id} title={title} />

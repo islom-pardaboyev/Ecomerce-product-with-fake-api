@@ -27,6 +27,7 @@ function ProductProvider({ children }) {
 
   function removeFromBasket(id) {
     const newProds = savedProds.filter((prod) => prod.id !== id);
+    toast.success("Product removed from basket")
 
     setSavedProds(newProds);
   }
@@ -35,7 +36,7 @@ function ProductProvider({ children }) {
     const newCart = savedProds.find((prod) => prod.id === id);
 
     if (newCart) {
-      if (newCart.amount < newCart?.rating.count) {
+      if (newCart.amount < newCart?.rating?.count) {
         newCart.amount += 1;
         setSavedProds([...savedProds]);
       }

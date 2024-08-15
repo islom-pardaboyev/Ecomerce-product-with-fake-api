@@ -13,7 +13,7 @@ const About = () => {
   
 
   return (
-    <div className="w-screen fixed top-0 left-0 h-screen flex items-center justify-center">
+    <div className="w-screen fixed top-0 left-0 h-screen dark:bg-neutral-800 dark:text-white flex items-center justify-center">
       {loading ? (
         <MagnifyingGlass
           visible={true}
@@ -26,7 +26,7 @@ const About = () => {
           color="#e15b64"
         />
       ) : (
-        <div className="p-4 border w-[1000px] flex items-center gap-36">
+        <div className="p-4 border dark:border-neutral-500 w-[1000px] flex items-center gap-36">
           <img width={300} src={data.image} alt="" />
           <div className="flex flex-col items-start">
             <h1 className="text-2xl">{data.title}</h1>
